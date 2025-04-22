@@ -46,7 +46,7 @@ async def test_list_patients_with_offset_limit(client, session, faker):
     assert res.status_code == 200
     data = res.json()["data"]
     last_names = list(map(lambda patient: patient["last_name"], data))
-    sorted_last_names = sorted(last_names, key=lambda last: last["first_name"])
+    sorted_last_names = sorted(last_names, reverse=True)
     assert isinstance(data, list)
     assert len(data) == 10
     for i in range(len(last_names)):

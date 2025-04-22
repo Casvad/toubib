@@ -5,7 +5,8 @@ def test_add_patient(session, faker):
     from toubib.models.schemas.patient import Patient
 
     patient = Patient(
-        email=faker.first_name(),
+        email=faker.email(),
+        first_name=faker.first_name(),
         last_name=faker.last_name(),
         date_of_birth=faker.date_of_birth(),
         sex_at_birth="FEMALE",
