@@ -21,7 +21,7 @@ def db_url():
 
 @fixture
 def sqla_modules():
-    from toubib import sqla  # noqa
+    from toubib.models.schemas import doctor  # noqa
 
 
 @fixture
