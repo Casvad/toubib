@@ -1,9 +1,10 @@
-from structlog import get_logger
 from fastapi import APIRouter, Depends
 from fastapi_sqla import Session
 from structlog import get_logger
 
+from toubib.dependencies.auth_dependency import get_current_user
 from toubib.models.entities.patient import PatientIn
+from toubib.models.entities.user import UserModel
 from toubib.services import patient_service
 
 log = get_logger()
@@ -16,7 +17,7 @@ def list_patients(limit: int = 10, offset: int = 0, session: Session = Depends()
 
 
 @router.post("", status_code=201)
-def create_patient(*, body: PatientIn, session: Session = Depends()):
+def create_patient(*, body: PatientIn, session: Session = Depends(), current_user: UserModel = Depends(get_current_user)):
     return {"data": patient_service.create(body, session)}
 
 

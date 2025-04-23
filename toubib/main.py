@@ -17,4 +17,6 @@ app.include_router(routes.general_router)
 app.include_router(routes.patient_router)
 app.include_router(routes.doctor_router)
 
+app.include_router(routes.auth_router)
+
 register_exception_handlers(app)

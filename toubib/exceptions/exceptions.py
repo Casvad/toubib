@@ -16,6 +16,9 @@ class InvalidArgument(Exception):
     def __init__(self, msg: str):
         super().__init__(msg)
 
+class UnauthorizedException(Exception):
+    def __init__(self, msg: str):
+        super().__init__(msg)
 
 class IllegalStateException(Exception):
     def __init__(self, msg: str, trace: Optional[Exception] = None):
